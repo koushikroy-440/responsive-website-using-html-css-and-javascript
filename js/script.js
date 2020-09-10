@@ -31,4 +31,34 @@ window.addEventListener("scroll",function(){
  else{
   nav.removeAttribute("class","fixed-nav");
  }
+
 });
+
+//smooth scroll
+
+var scroll_link = document.getElementsByClassName("scroll-link");
+var i;
+for(i=0;i<scroll_link.length;i++)
+{
+    scroll_link[i].onclick = function(event){
+      event.preventDefault();
+      var id = this.getAttribute("href").slice(1);
+      var element = document.getElementById(id);
+      const navHeight = nav.getBoundingClientRect().height;
+      const containerHeight = links_container.getBoundingClientRect().height;
+      const fixedNav = nav.classList.contains("fixed-nav");
+      let position = element.offsetTop - navHeight;
+      if (!fixedNav) {
+        position = position - navHeight;
+      }
+      if (navHeight > 82) {
+        position = position + containerHeight;
+      }
+      window.scrollTo({
+        left : 0,
+        top : position,
+        transition: 5
+      });
+      links_container.style.height = 0;
+    }
+}

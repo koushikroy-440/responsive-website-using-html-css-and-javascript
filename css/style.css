@@ -295,6 +295,24 @@ header {
   border-radius: var(--radius);
   color: var(--clr-white);
   animation: bounce 2s ease-in-out infinite;
-  visibility: hidden;
   z-index: -100;
+}
+/* section */
+.section {
+  padding-bottom: 5rem;
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1170px;
+  height: 500px;
+}
+
+.section-center {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1170px;
+}
+@media screen and (min-width: 992px) {
+  .section-center {
+    width: 95vw;
+  }
 }
